@@ -1,0 +1,24 @@
+default:
+    context:
+        class:  OverviewContext
+        parameters:
+            base_url: http://dbda.test
+    paths:
+        features: app/tests/behat
+        bootstrap: %behat.paths.features%/bootstrap
+    extensions:
+        Behat\MinkExtension\Extension:
+            base_url: http://dbda.test
+            goutte: ~
+            selenium2: ~
+            browser_name: firefox'
+            javascript_session: selenium2
+phantomjs:
+    context:
+        class:  OverviewContext
+    extensions:
+        Behat\MinkExtension\Extension:
+            base_url: http://dbda.test
+            goutte: ~
+            selenium2:
+                wd_host: http://localhost:8643/wd/hub
