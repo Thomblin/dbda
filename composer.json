@@ -24,7 +24,7 @@
 	  "behat/mink-selenium2-driver": "*",
 	  "guzzlehttp/guzzle": "4.*",
 	  "phpunit/dbunit": "*",
-	  "phpunit/phpunit": "3.7.28"
+	  "phpunit/phpunit": "~3.7"
 	},
 	"autoload": {
 		"classmap": [
