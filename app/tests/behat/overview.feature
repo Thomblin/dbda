@@ -10,3 +10,12 @@ Feature: Overview
     Then I should see a "#maintable" element
     Then the "#maintable" element should contain "cities"
     Then the "#maintable" element should contain "countries"
+
+  @javascript
+  Scenario: select a table
+    Given I am on "/"
+    And I have a database table named "countries"
+    Then I should see a "#maintable #table_countries" element
+    When I click on "#table_countries" element
+    Then I should see a "#tabledetails" element
+    Then the "#tabledetails" element should contain "id"

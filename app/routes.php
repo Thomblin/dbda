@@ -13,4 +13,4 @@
 
 Route::get('/', 'HomeController@showOverview');
 
-Route::get('show_table/{name}', 'TabelController@getDetails');
+Route::get('table/details/{name}', 'AjaxController@getTableDetails');

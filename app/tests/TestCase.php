@@ -1,6 +1,10 @@
 <?php
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase {
+namespace Tests;
+
+class TestCase extends \Illuminate\Foundation\Testing\TestCase
+{
+	const HTTP_HOST = "http://dbda.test";
 
 	/**
 	 * Creates the application.

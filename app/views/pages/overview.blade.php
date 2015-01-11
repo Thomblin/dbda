@@ -31,7 +31,7 @@
 		<h1>DB Dependency Admin</h1>
 		<ul id="maintable">
 			@foreach ($tables as $table)
-				<li>{{{$table}}}</li>
+				<li><a href="#" id="table_{{{$table}}}">{{{$table}}}</a></li>
 			@endforeach
 		</ul>
 	</div>

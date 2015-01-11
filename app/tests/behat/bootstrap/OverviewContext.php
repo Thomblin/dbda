@@ -59,7 +59,14 @@ class OverviewContext extends MinkContext
      */
     public function iHaveADatabaseTableNamed($tableName)
     {
-        DB::statement("drop table if exists {$tableName}");
-        DB::statement("create table {$tableName} (id int PRIMARY KEY AUTO_INCREMENT)");
+        \Tests\Fixtures\Loader::createTable($tableName);
+    }
+
+    /**
+     * @When /^I click on "#{0,1}([^"]*)" element$/
+     */
+    public function iClickOnElement($element)
+    {
+        $this->clickLink($element);
     }
 }
