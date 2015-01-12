@@ -69,4 +69,12 @@ class OverviewContext extends MinkContext
     {
         $this->clickLink($element);
     }
+
+    /**
+     * @Then /^an ajax event triggers$/
+     */
+    public function anAjaxEventTriggers()
+    {
+        $this->getSession()->wait(1000, '(1 === finishedAjax)');
+    }
 }
