@@ -1,4 +1,4 @@
-angular.module('TableController', []).controller('TableController', ['$scope', '$http', 'Table', function($scope, $http, Table) {
+angular.module('TableController', []).controller('TableController', ['$scope', 'Table', function($scope, Table) {
 
     $scope.currentTable = false;
     $scope.tableData = {};

@@ -1,16 +1,9 @@
-angular.module('TableService', []).factory('Table', function($http) {
+angular.module('TableService', []).factory('Table', ['AjaxService', function(AjaxService) {
 
     return {
         loadDetails : function(name) {
-            ++startedAjax;
-            var promise = $http.get('/table/details/' + name);
-
-            promise.then( function() {
-                ++finishedAjax;
-            });
-
-            return promise;
+            return AjaxService.get('/table/details/' + name);
         }
     }
 
-});
+}]);

@@ -75,6 +75,9 @@ class OverviewContext extends MinkContext
      */
     public function anAjaxEventTriggers()
     {
-        $this->getSession()->wait(1000, '(1 === finishedAjax)');
+        static $ajaxCalls = 0;
+
+        ++$ajaxCalls;
+        $this->getSession()->wait(1000, "({$ajaxCalls} === Ajax.finishedAjax)");
     }
 }
