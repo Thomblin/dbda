@@ -1,9 +1,9 @@
 <?php
 
-class HomeController extends BaseController
+class TableController extends BaseController
 {
 
-    public function showOverview()
+    public function getTables()
     {
         $tables = DB::select("show tables");
 
@@ -17,4 +17,10 @@ class HomeController extends BaseController
         ));
     }
 
+    public function getTableDetails($tableName)
+    {
+        $repository = new DatabaseRepository();
+
+        return json_encode($repository->getTableDetails($tableName));
+    }
 }

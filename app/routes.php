@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', 'HomeController@showOverview');
+Route::get('/', 'TableController@getTables');
 
-Route::get('table/details/{name}', 'AjaxController@getTableDetails');
+Route::get('table/details/{name}', 'TableController@getTableDetails');
