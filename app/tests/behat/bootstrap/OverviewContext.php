@@ -79,5 +79,6 @@ class OverviewContext extends MinkContext
 
         ++$ajaxCalls;
         $this->getSession()->wait(1000, "({$ajaxCalls} === Ajax.finishedAjax)");
+        usleep(1000);
     }
 }
