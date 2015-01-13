@@ -33,6 +33,10 @@ Get all required packages with ``composer update``.
 You can run phpunit tests with ``vendor/bin/phpunit`` inside ``/home/vagrant/Code/dbda``.
 All tests are stored in ``/home/vagrant/Code/dbda/app/tests``.
 
+## PhantomJs
+
+In order to run Behat tests and QUnit tests you need to run phantomjs by ``phantomjs --webdriver=8643 &``
+
 ## Behat
 
 To run behat tests you need to configure a second domain which points to ``/home/vagrant/Code/dbda``.
@@ -50,3 +54,11 @@ Do not forget to ``homestead halt`` and ``homestead up --provision`` your enviro
 
 You can run behat tests with ``vendor/bin/beahat`` inside ``/home/vagrant/Code/dbda``.
 Behat tests are stored in ``/home/vagrant/Code/dbda/app/tests/behat``.
+
+## QUnit
+
+You can run js tests with ``phantomjs app/tests/js/runner.js http://dbda.test/js/tests/test.html`` inside ``/home/vagrant/Code/dbda``.
+
+## Run all tests
+
+In order to run all tests you can use the temporary ``run_tests.sh`` script
