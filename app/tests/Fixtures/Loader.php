@@ -17,7 +17,7 @@ class Loader
     {
         $class = __NAMESPACE__ . ucfirst($name);
 
-        \Schema::drop($name);
+        \Schema::dropIfExists($name);
 
         if ( class_exists($class) && $class instanceof Repository ) {
             $class::create();

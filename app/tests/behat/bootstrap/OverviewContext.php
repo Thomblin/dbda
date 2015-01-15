@@ -43,7 +43,7 @@ class OverviewContext extends MinkContext
     public static function bootstrapLaravel()
     {
         $unitTesting = true;
-        $testEnvironment = 'behat';
+        $testEnvironment = getenv('TRAVIS') ? 'travis' : 'behat';
 
         $app = require_once __DIR__ . '/../../../../bootstrap/start.php';
         $app->boot();
