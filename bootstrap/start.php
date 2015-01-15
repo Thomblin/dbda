@@ -27,7 +27,9 @@ $app = new Illuminate\Foundation\Application;
 $current_url = parse_url($app['request']->url());
 
 if (getenv("TRAVIS")) {
-    return "travis";
+    $env = $app->detectEnvironment(function () {
+        return "travis";
+    });
 } elseif ($current_url['host'] == 'dbda.test') {
     $env = $app->detectEnvironment(function () {
         return "behat";
