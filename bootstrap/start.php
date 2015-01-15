@@ -26,12 +26,12 @@ $app = new Illuminate\Foundation\Application;
 
 $current_url = parse_url($app['request']->url());
 
-if ($current_url['host'] == 'dbda.test')
-{
-    $env = $app->detectEnvironment(function(){
+if (getenv("TRAVIS")) {
+    return "travis";
+} elseif ($current_url['host'] == 'dbda.test') {
+    $env = $app->detectEnvironment(function () {
         return "behat";
     });
-
 } else {
     $env = $app->detectEnvironment(array(
         'local' => array('homestead'),
@@ -49,7 +49,7 @@ if ($current_url['host'] == 'dbda.test')
 |
 */
 
-$app->bindInstallPaths(require __DIR__.'/paths.php');
+$app->bindInstallPaths(require __DIR__ . '/paths.php');
 
 /*
 |--------------------------------------------------------------------------
@@ -62,10 +62,10 @@ $app->bindInstallPaths(require __DIR__.'/paths.php');
 |
 */
 
-$framework = $app['path.base'].
-                 '/vendor/laravel/framework/src';
+$framework = $app['path.base'] .
+    '/vendor/laravel/framework/src';
 
-require $framework.'/Illuminate/Foundation/start.php';
+require $framework . '/Illuminate/Foundation/start.php';
 
 /*
 |--------------------------------------------------------------------------
