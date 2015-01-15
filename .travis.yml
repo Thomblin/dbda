@@ -12,11 +12,8 @@ before_script:
   - mysql -e 'create database dbda_test;'
   - composer self-update
   - composer install --dev --no-interaction --prefer-source
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
-  - rackup  # start a Web server
-  - sleep 3 # give Web server some time to bind to sockets, etc
+  - sudo php -S dbda.test:80 -t public/
+  - phantomjs --version
   - phantomjs --webdriver=8643 &
 
 script:
