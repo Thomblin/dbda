@@ -1,6 +1,5 @@
 language: php
 php:
-  - 5.3
   - 5.4
   - 5.5
   - hhvm
@@ -17,6 +16,6 @@ before_script:
   - phantomjs --webdriver=8643 &
 
 script:
-    - vendor/bin/phpunit
-    - vendor/bin/behat -p travis
-    - phantomjs app/tests/js/runner.js http://dbda.test/js/tests/test.html
+    - vendor/bin/phpunit -v
+    - vendor/bin/behat -v -p travis
+    - phantomjs app/tests/js/runner.js http://dbda.test:8888/js/tests/test.html
