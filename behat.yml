@@ -11,4 +11,19 @@ default:
             base_url: http://dbda.test
             goutte: ~
             selenium2:
-                wd_host: http://localhost:8643/wd/hub
+                wd_host: http://dbda.test:8643/wd/hub
+travis:
+    context:
+        class:  OverviewContext
+        parameters:
+            base_url: http://dbda.test:8888
+    paths:
+        features: app/tests/behat
+        bootstrap: %behat.paths.features%/bootstrap
+    extensions:
+        Behat\MinkExtension\Extension:
+            base_url: http://dbda.test:8888
+            goutte: ~
+            selenium2:
+                wd_host: http://dbda.test:8643/wd/hub
+

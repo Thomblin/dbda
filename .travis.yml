@@ -12,11 +12,11 @@ before_script:
   - mysql -e 'create database dbda_test;'
   - composer self-update
   - composer install --dev --no-interaction --prefer-source
-  - sudo php -S dbda.test:80 -t public/
+  - php -S dbda.test:8888 -t public/ &
   - phantomjs --version
   - phantomjs --webdriver=8643 &
 
 script:
     - vendor/bin/phpunit
-    - vendor/bin/behat
+    - vendor/bin/behat -p travis
     - phantomjs app/tests/js/runner.js http://dbda.test/js/tests/test.html
