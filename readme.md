@@ -1,6 +1,6 @@
 ### DB Dependency Admin (dbda)
 
-[![Build Status](https://travis-ci.org/Thomblin/dbda.svg?branch=travis)](https://travis-ci.org/Thomblin/dbda)
+[![Build Status](https://travis-ci.org/Thomblin/dbda.svg?branch=master)](https://travis-ci.org/Thomblin/dbda)
 
 DB Dependency Admin (dbda) is an interface to handle dependent database tables/entries.
 Relationships will be figured out by foreign keys, but can be specified (in detail) manually too.
