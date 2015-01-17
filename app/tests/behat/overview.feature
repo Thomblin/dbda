@@ -17,7 +17,6 @@ Feature: Overview
     And I have a database table named "countries"
     Then I should see a "#maintable #table_countries" element
     When I click on "#table_countries" element
-    Then an ajax event triggers
-    Then I should see a "#tabledetails" element
+    Then I wait for a "#tabledetails" element
     Then the "#tabledetails" element should contain "table: countries"
     Then the "#tabledetails" element should contain "type: integer"

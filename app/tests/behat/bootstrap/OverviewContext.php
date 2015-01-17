@@ -81,4 +81,49 @@ class OverviewContext extends MinkContext
         $this->getSession()->wait(1000, "({$ajaxCalls} === Ajax.finishedAjax)");
         usleep(1000);
     }
+
+    /**
+     * @Then /^I wait for a "([^"]*)" element$/
+     */
+    public function iWaitForAElement($element)
+    {
+        $self = $this;
+
+        $this->anAjaxEventTriggers();
+
+        $this->wait(function() use($element, $self) {
+            $self->assertSession()->elementExists('css', $element);
+            return true;
+        });
+    }
+
+    /**
+     * @param Closure $lambda
+     * @param int $timeout
+     *
+     * @return bool
+     * @throws Exception
+     */
+    public function wait (Closure $lambda, $timeout = 60)
+    {
+        for ($i = 0; $i < $timeout; $i++)
+        {
+            try {
+                if ($lambda($this)) {
+                    return true;
+                }
+            } catch (Exception $e) {
+                // do nothing
+            }
+
+            sleep(1);
+        }
+
+        $backtrace = debug_backtrace();
+
+        throw new Exception(
+            "Timeout thrown by " . $backtrace[1]['class'] . "::" . $backtrace[1]['function'] . "()\n" .
+            $backtrace[1]['file'] . ", line " . $backtrace[1]['line']
+        );
+    }
 }
