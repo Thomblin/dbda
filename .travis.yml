@@ -11,9 +11,6 @@ allow_failures:
 services:
   - mysql
 
-# faster builds on new travis setup not using sudo
-sudo: false
-
 before_script:
   - mysql --version
   - mysql -e 'create database dbda_test;'
