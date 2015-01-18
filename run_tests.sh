@@ -13,4 +13,4 @@ echo "launch behat"
 vendor/bin/behat
 
 echo "launch qunit"
-phantomjs app/tests/js/runner.js http://dbda.test/js/tests/test.html
+phantomjs app/tests/js/runner.js http://dbda.test/qunit
