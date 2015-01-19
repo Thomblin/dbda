@@ -15,4 +15,4 @@ Route::get('/', 'TableController@getTables');
 
 Route::get('table/details/{name}', 'TableController@getTableDetails');
 
-Route::get('qunit', 'QUnitController@getDefaultPage');
+Route::get('jasmine', 'JasmineController@getDefaultPage');

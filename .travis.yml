@@ -25,7 +25,7 @@ before_script:
 script:
     - vendor/bin/phpunit -v
     - vendor/bin/behat -v -p travis
-    - phantomjs app/tests/js/runner.js http://dbda.test:8888/qunit
+    - phantomjs app/tests/js/run-jasmine.js http://dbda.test:8888/jasmine
 
 addons:
   hosts:

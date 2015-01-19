@@ -12,5 +12,5 @@ vendor/bin/phpunit
 echo "launch behat"
 vendor/bin/behat
 
-echo "launch qunit"
-phantomjs app/tests/js/runner.js http://dbda.test/qunit
+echo "launch jasmine"
+phantomjs app/tests/js/run-jasmine.js http://dbda.test/jasmine
