@@ -1,5 +1,6 @@
+// $http wrapper for behat testing purposes
 
-angular.module('AjaxService', []).factory('AjaxService', function($http) {
+var Ajax = function ($http) {
     return {
         startedAjax: 0,
         finishedAjax: 0,
@@ -18,4 +19,8 @@ angular.module('AjaxService', []).factory('AjaxService', function($http) {
             return promise;
         }
     };
+};
+
+angular.module('AjaxService', []).factory('AjaxService', function($http) {
+    return Ajax($http);
 });
